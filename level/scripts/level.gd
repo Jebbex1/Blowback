@@ -1,8 +1,29 @@
 extends Node2D
 
-const blowback_distance: float = 70
+enum colors {BLUE, CYAN, GREEN, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW, ADMIN}
+const color_paths = {
+	colors.BLUE:   "res://player/assets/blue_tank.png", 
+	colors.CYAN:   "res://player/assets/cyan_tank.png",
+	colors.GREEN:  "res://player/assets/green_tank.png",
+	colors.ORANGE: "res://player/assets/orange_tank.png",
+	colors.PINK:   "res://player/assets/pink_tank.png",
+	colors.PURPLE: "res://player/assets/purple_tank.png",
+	colors.RED:    "res://player/assets/red_tank.png",
+	colors.WHITE:  "res://player/assets/white_tank.png",
+	colors.YELLOW: "res://player/assets/yellow_tank.png",
+	colors.ADMIN:  "res://player/assets/admin_tank.png",
+}
 
-var main_player_angle = 0
+@export var blowback_impulse_magnitude: float = 700
+@export var bullet_preload = preload("res://bullet/bullet.tscn")
+@export var player_preload = preload("res://player/player.tscn")
+
+
+var loaded_tanks = []
+
+
+func _ready() -> void:
+	add_tank(1, 2, Vector2(100, 100))
 
 
 func _input(event: InputEvent) -> void:
@@ -15,10 +36,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		main_player_shoot()
 		return
-	
-	# debug
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-		print($MainPlayer.velocity)
 
 
 func get_main_player_tank_angle() -> float:
@@ -27,13 +44,25 @@ func get_main_player_tank_angle() -> float:
 
 
 func update_main_player_angle() -> void:
-	main_player_angle = get_main_player_tank_angle()
-	$MainPlayer.update_angle(main_player_angle)
+	$MainPlayer.update_angle(get_main_player_tank_angle())
 
 
 func main_player_shoot():
 	update_main_player_angle()
-	var blowback_direction_vector = -Vector2.from_angle(main_player_angle)
-	var new_pos = $MainPlayer.get_target_pos() \
-				  + (blowback_direction_vector * blowback_distance)
-	$MainPlayer.add_to_target_pos(new_pos)
+	var facing = Vector2.from_angle(get_main_player_tank_angle())
+	var blowback_impulse = -facing * blowback_impulse_magnitude
+	$MainPlayer.apply_central_impulse(blowback_impulse)
+	
+	var bullet = bullet_preload.instantiate()
+	bullet.position = $MainPlayer.position + 1.1*facing*$MainPlayer.get_collision_radius() + 1.1*facing*bullet.get_collision_radius()
+	add_child(bullet)
+	bullet.apply_central_impulse(facing * blowback_impulse_magnitude)
+
+
+func add_tank(id: int, color: int, position: Vector2):
+	var player = player_preload.instantiate()
+	player.id = id
+	player.update_sprite(color_paths[color])
+	player.position = position
+	add_child(player)
+	loaded_tanks.append(player)

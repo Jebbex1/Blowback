@@ -1,11 +1,7 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 var angle: float = 0
-
-
-func _physics_process(delta):
-	var weight = 1 - exp(-10 * delta)
-	position = position.lerp($TargetPosition2D.position, weight)
+var id = -1
 
 
 func update_angle(new_angle: float) -> void:
@@ -16,5 +12,14 @@ func update_angle(new_angle: float) -> void:
 func get_target_pos() -> Vector2:
 	return $TargetPosition2D.position
 
+
 func add_to_target_pos(new_pos: Vector2):
 	$TargetPosition2D.position =+ new_pos
+
+
+func get_collision_radius() -> float:
+	return $PlayerCollisionShape2D.shape.radius
+
+
+func update_sprite(path: String):
+	$PlayerSprite2D.texture = load(path)
