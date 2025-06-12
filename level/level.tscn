@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1pwfkqw4hx5a"]
+[gd_scene load_steps=4 format=3 uid="uid://d1pwfkqw4hx5a"]
 
 [ext_resource type="Script" uid="uid://cc5ojyhtmupwc" path="res://level/scripts/level.gd" id="1_5gx2l"]
-[ext_resource type="PackedScene" uid="uid://cnuotv5pvyx71" path="res://player/player.tscn" id="2_qohg2"]
 [ext_resource type="Texture2D" uid="uid://fuvwdyif4h44" path="res://icon.svg" id="4_vkbyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktfr2"]
@@ -9,12 +8,6 @@ size = Vector2(56, 56)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_5gx2l")
-
-[node name="MainPlayer" parent="." instance=ExtResource("2_qohg2")]
-position = Vector2(152.65, 82.0198)
-linear_damp = 10.0
-
-[node name="Camera2D" type="Camera2D" parent="MainPlayer"]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

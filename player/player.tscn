@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnuotv5pvyx71"]
+[gd_scene load_steps=8 format=3 uid="uid://cnuotv5pvyx71"]
 
 [ext_resource type="Script" uid="uid://dusqydrfdgsrv" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://6a6q4mvhsnqx" path="res://player/assets/white_tank.png" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://cwb5fe1l3fdw1" path="res://components/health_component.tscn" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://cuoyxwgvivd6u" path="res://components/hurtbox_component.tscn" id="4_qjkh3"]
 
 [sub_resource type="GDScript" id="GDScript_rkbax"]
 script/source = "extends Sprite2D
 "
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjkh3"]
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 17.0
@@ -13,7 +18,7 @@ radius = 17.0
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
 lock_rotation = true
-linear_damp = 2.0
+linear_damp = 10.0
 angular_damp_mode = 1
 script = ExtResource("1_rkbax")
 
@@ -22,5 +27,13 @@ z_index = 1
 texture = ExtResource("2_rkbax")
 script = SubResource("GDScript_rkbax")
 
+[node name="HurtboxComponent" parent="." instance=ExtResource("4_qjkh3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_qjkh3")
+debug_color = Color(1, 0, 0, 0.392157)
+
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yw30f")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_yw30f")]

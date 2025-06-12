@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwb5fe1l3fdw1"]
+
+[ext_resource type="Script" uid="uid://bsa8nryv0qhri" path="res://components/scripts/health_component.gd" id="1_t2tvt"]
+
+[node name="HealthComponent" type="Node2D"]
+script = ExtResource("1_t2tvt")
+
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
+[connection signal="health_decreased" from="." to="." method="_on_health_decreased"]
+[connection signal="health_depleted" from="." to="." method="_on_health_depleted"]
+[connection signal="health_increased" from="." to="." method="_on_health_increased"]

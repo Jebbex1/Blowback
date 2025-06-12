@@ -23,3 +23,7 @@ func get_collision_radius() -> float:
 
 func update_sprite(path: String):
 	$PlayerSprite2D.texture = load(path)
+
+
+func give_camera():
+	add_child(Camera2D.new())

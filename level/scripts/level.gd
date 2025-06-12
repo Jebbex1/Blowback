@@ -19,11 +19,13 @@ const color_paths = {
 @export var player_preload = preload("res://player/player.tscn")
 
 
-var loaded_tanks = []
+var loaded_tanks = {}
+var main_tank = null
 
 
 func _ready() -> void:
-	add_tank(1, 2, Vector2(100, 100))
+	add_tank(1, Vector2(100, 100), 2)
+	add_tank(1, Vector2(100, 200), colors.ADMIN, true)
 
 
 func _input(event: InputEvent) -> void:
@@ -39,30 +41,35 @@ func _input(event: InputEvent) -> void:
 
 
 func get_main_player_tank_angle() -> float:
-	var direction_vector = (get_global_mouse_position() - $MainPlayer.position).normalized()
+	var direction_vector = (get_global_mouse_position() - main_tank.position).normalized()
 	return direction_vector.angle()
 
 
 func update_main_player_angle() -> void:
-	$MainPlayer.update_angle(get_main_player_tank_angle())
+	main_tank.update_angle(get_main_player_tank_angle())
 
 
 func main_player_shoot():
 	update_main_player_angle()
 	var facing = Vector2.from_angle(get_main_player_tank_angle())
 	var blowback_impulse = -facing * blowback_impulse_magnitude
-	$MainPlayer.apply_central_impulse(blowback_impulse)
+	main_tank.apply_central_impulse(blowback_impulse)
 	
 	var bullet = bullet_preload.instantiate()
-	bullet.position = $MainPlayer.position + 1.1*facing*$MainPlayer.get_collision_radius() + 1.1*facing*bullet.get_collision_radius()
+	bullet.position = main_tank.position + 1.1*facing*main_tank.get_collision_radius() + 1.1*facing*bullet.get_collision_radius()
 	add_child(bullet)
 	bullet.apply_central_impulse(facing * blowback_impulse_magnitude)
 
 
-func add_tank(id: int, color: int, position: Vector2):
+func add_tank(id: int, position: Vector2, color: int, is_main: bool = false):
 	var player = player_preload.instantiate()
 	player.id = id
 	player.update_sprite(color_paths[color])
 	player.position = position
+	
+	if is_main:
+		main_tank = player
+		player.give_camera()
+	
 	add_child(player)
-	loaded_tanks.append(player)
+	loaded_tanks[id] = player
