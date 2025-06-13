@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://co17p28gv6xru"]
+
+[ext_resource type="Script" uid="uid://cqmf3qjp7gdie" path="res://components/scripts/ttl_component.gd" id="1_vybua"]
+
+[node name="TTLComponent" type="Timer"]
+one_shot = true
+script = ExtResource("1_vybua")

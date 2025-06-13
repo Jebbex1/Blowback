@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8rn5cha1qt12"]
+
+[ext_resource type="Script" uid="uid://xq1jjawt4yrn" path="res://objects/scripts/bullet.gd" id="1_3ndsa"]
+[ext_resource type="PackedScene" uid="uid://cql7qxre75ccn" path="res://components/hitbox_component.tscn" id="2_ucnj8"]
+[ext_resource type="Texture2D" uid="uid://bxx41lnk4xsfw" path="res://objects/assets/bullet.png" id="2_xbcx7"]
+[ext_resource type="PackedScene" uid="uid://co17p28gv6xru" path="res://components/ttl_component.tscn" id="3_xbcx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsjgb"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wip1"]
+radius = 4.0
+
+[node name="Bullet" type="RigidBody2D"]
+mass = 0.5
+gravity_scale = 0.0
+linear_damp = 0.2
+script = ExtResource("1_3ndsa")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_ucnj8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_rsjgb")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6wip1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.49012e-08, -1.49012e-08)
+scale = Vector2(0.78125, 0.78125)
+texture = ExtResource("2_xbcx7")
+
+[node name="TTLComponent" parent="." instance=ExtResource("3_xbcx7")]
+
+[connection signal="body_entered" from="HitboxComponent" to="." method="_on_hitbox_body_collision"]

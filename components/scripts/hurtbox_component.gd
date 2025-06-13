@@ -1,7 +1,8 @@
 extends Area2D
 class_name HurtboxComponent
 
-@export var health_component_node: HealthComponent = null
+@export var health_component_node: HealthComponent
 
 func _ready() -> void:
-	set_monitoring(true)
+	assert(health_component_node != null, 
+		   "Hurtbox compoents require health components to function properly.")
