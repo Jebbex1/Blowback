@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://unl64iwih3x3"
-path="res://.godot/imported/pink_tank.png-65b7a24525ac87f17bb88b6a128a2378.ctex"
+uid="uid://dp4mnbstffeui"
+path="res://.godot/imported/yellow_tank.png-a34381e715888bca64ca09bc7161b8ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/pink_tank.png"
-dest_files=["res://.godot/imported/pink_tank.png-65b7a24525ac87f17bb88b6a128a2378.ctex"]
+source_file="res://objects/assets/yellow_tank.png"
+dest_files=["res://.godot/imported/yellow_tank.png-a34381e715888bca64ca09bc7161b8ff.ctex"]
 
 [params]
 
