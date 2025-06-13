@@ -14,7 +14,7 @@ const color_paths = {
 	colors.ADMIN:  "res://player/assets/admin_tank.png",
 }
 
-@export var blowback_impulse_magnitude: float = 800
+@export var blowback_impulse_magnitude: float = 700
 @export var bullet_preload = preload("res://bullet/bullet.tscn")
 @export var player_preload = preload("res://player/player.tscn")
 

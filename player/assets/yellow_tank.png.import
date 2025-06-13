@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ci7qs0ch1bu"
-path="res://.godot/imported/admin_tank.png-e164a80ae74ec2af9785a2e3df7e4457.ctex"
+uid="uid://dp4mnbstffeui"
+path="res://.godot/imported/yellow_tank.png-edbd18bb1e919aa9fda36008e46ecdc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/assets/admin_tank.png"
-dest_files=["res://.godot/imported/admin_tank.png-e164a80ae74ec2af9785a2e3df7e4457.ctex"]
+source_file="res://player/assets/yellow_tank.png"
+dest_files=["res://.godot/imported/yellow_tank.png-edbd18bb1e919aa9fda36008e46ecdc3.ctex"]
 
 [params]
 

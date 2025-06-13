@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csokk8ifikdhs"
-path="res://.godot/imported/blue_tank.png-a380ae1147e2b8072873525972611437.ctex"
+uid="uid://cv884m3pv6emt"
+path="res://.godot/imported/red_tank.png-4854a0615dc7f3b5057026ac4c905e93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/assets/blue_tank.png"
-dest_files=["res://.godot/imported/blue_tank.png-a380ae1147e2b8072873525972611437.ctex"]
+source_file="res://player/assets/red_tank.png"
+dest_files=["res://.godot/imported/red_tank.png-4854a0615dc7f3b5057026ac4c905e93.ctex"]
 
 [params]
 

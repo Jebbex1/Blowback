@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cnuotv5pvyx71"]
 
-[ext_resource type="Script" uid="uid://dusqydrfdgsrv" path="res://objects/scripts/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://6a6q4mvhsnqx" path="res://objects/assets/white_tank.png" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dusqydrfdgsrv" path="res://player/scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://6a6q4mvhsnqx" path="res://player/assets/white_tank.png" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://cwb5fe1l3fdw1" path="res://components/health_component.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cuoyxwgvivd6u" path="res://components/hurtbox_component.tscn" id="4_qjkh3"]
 
@@ -27,8 +27,7 @@ z_index = 1
 texture = ExtResource("2_rkbax")
 script = SubResource("GDScript_rkbax")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component_node") instance=ExtResource("4_qjkh3")]
-health_component_node = NodePath("../HealthComponent")
+[node name="HurtboxComponent" parent="." instance=ExtResource("4_qjkh3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_qjkh3")

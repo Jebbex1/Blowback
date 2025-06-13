@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7tw73l48hcs0"
-path="res://.godot/imported/orange_tank.png-33dd61dc4059e57994f0bd5b2b690c0b.ctex"
+uid="uid://4ci7qs0ch1bu"
+path="res://.godot/imported/admin_tank.png-f5f8ec1accb767a211531ccdc8e31b48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/assets/orange_tank.png"
-dest_files=["res://.godot/imported/orange_tank.png-33dd61dc4059e57994f0bd5b2b690c0b.ctex"]
+source_file="res://player/assets/admin_tank.png"
+dest_files=["res://.godot/imported/admin_tank.png-f5f8ec1accb767a211531ccdc8e31b48.ctex"]
 
 [params]
 

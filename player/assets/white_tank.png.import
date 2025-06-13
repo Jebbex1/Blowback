@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxx41lnk4xsfw"
-path="res://.godot/imported/bullet.png-3bc6b8f00a8e9d3ed0f025281f05eadb.ctex"
+uid="uid://6a6q4mvhsnqx"
+path="res://.godot/imported/white_tank.png-7ce23b9da04fd00214396702debf4c91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/assets/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-3bc6b8f00a8e9d3ed0f025281f05eadb.ctex"]
+source_file="res://player/assets/white_tank.png"
+dest_files=["res://.godot/imported/white_tank.png-7ce23b9da04fd00214396702debf4c91.ctex"]
 
 [params]
 

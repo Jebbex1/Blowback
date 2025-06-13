@@ -1,5 +1,4 @@
 extends RigidBody2D
-class_name Player
 
 var angle: float = 0
 var id = -1
