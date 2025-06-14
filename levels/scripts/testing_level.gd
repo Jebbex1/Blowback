@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var blowback_impulse_magnitude: float = 700
+@export var blowback_impulse_magnitude: float = 800
 
 var main_tank: Player
 
