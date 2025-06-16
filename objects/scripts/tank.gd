@@ -1,26 +1,27 @@
-class_name Player
+class_name Tank
 extends RigidBody2D
 
-static var player_packed_scene = preload("res://objects/player.tscn")
+static var tank_packed_scene = preload("res://objects/tank.tscn")
 enum colors {BLUE, CYAN, GREEN, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW, ADMIN}
 
 var angle: float
 var id: int
 
 
-static func new_player(player_id: int, starting_position: Vector2, color: int = -1, is_main: bool = false) -> Array:
-	var player = player_packed_scene.instantiate()
-	player.id = player_id
-	player.position = starting_position
-	color = randi() % colors.size()-1 if color == -1 else color
-	player.select_sprite(color)
+static func new_tank(tank_id: int, starting_position: Vector2, color: int = -1, is_main: bool = false) -> Array:
+	var tank = tank_packed_scene.instantiate()
+	tank.id = tank_id
+	tank.position = starting_position
+	# if the color of the tank was not selected, roll a random color (excluding the admin color)
+	color = randi() % (colors.size()-1) if color == -1 else color
+	tank.select_sprite(color)
 	if is_main:
 		var camera = Camera2D.new()
-		player.add_child(camera)
-		var action_component = PlayerActionComponent.new()
-		player.add_child(action_component)
-		return [player, action_component]
-	return [player, null]
+		tank.add_child(camera)
+		var action_component = MainTankActionComponent.new()
+		tank.add_child(action_component)
+		return [tank, action_component]
+	return [tank, null]
 
 
 func update_angle(new_angle: float) -> void:
@@ -29,7 +30,7 @@ func update_angle(new_angle: float) -> void:
 
 
 func get_collision_radius() -> float:
-	return $PlayerCollisionShape2D.shape.radius
+	return $EnviromentCollisionShape.shape.radius
 
 
 func select_sprite(color: int) -> void:

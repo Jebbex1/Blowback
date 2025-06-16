@@ -22,5 +22,5 @@ func start_timeout() -> void:
 
 
 func _on_hitbox_body_collision(body: Node2D) -> void:
-	if body is Player or body is StaticBody2D:
+	if body is Tank or body is StaticBody2D:
 		queue_free()
