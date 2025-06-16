@@ -1,6 +1,7 @@
 extends RigidBody2D
 class_name Bullet
 
+static var blowback_impulse_magnitude := 700
 static var bullet_packed_scene = preload("res://objects/bullet.tscn")
 
 

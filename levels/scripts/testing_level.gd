@@ -1,13 +1,21 @@
 extends Node2D
 
-@export var blowback_impulse_magnitude: float = 800
-
 var main_tank: Tank
+var loaded_tanks: Dictionary[int, Tank] = {}
 
 
 func _ready() -> void:
 	add_tank(1, Vector2(0, -10), Tank.colors.ADMIN, true)
 	add_tank(2, Vector2(100, 100))
+	var t = Thread.new()
+	t.start(foo)
+
+func foo():
+	var tank = loaded_tanks[2]
+	while true:
+		await get_tree().create_timer(3).timeout 
+		tank.update_angle(deg_to_rad(randi() % 360))
+		tank_shoot(tank.id)
 
 
 func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: bool = false):
@@ -18,6 +26,7 @@ func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: boo
 		var action_component = tank_set[1]
 		action_component.connect("tank_updated_angle", main_tank_refresh_angle)
 		action_component.connect("tank_shot", main_tank_shoot)
+	loaded_tanks[id] = tank_set[0]
 	add_child(tank_set[0])
 
 
@@ -29,16 +38,22 @@ func main_tank_refresh_angle() -> void:
 	main_tank.update_angle(get_main_tank_angle())
 
 
-func main_tank_shoot():
-	main_tank_refresh_angle()
-	var facing = Vector2.from_angle(get_main_tank_angle())
-	var blowback_impulse = -facing * blowback_impulse_magnitude
-	main_tank.apply_central_impulse(blowback_impulse)
+func tank_shoot(id: int):
+	if not loaded_tanks.has(id):
+		return false
+	
+	var tank = loaded_tanks[id]
+	var facing = Vector2.from_angle(tank.angle)
+	tank.apply_central_impulse(-facing * Tank.blowback_impulse_magnitude)
 	
 	var bullet = Bullet.new_bullet()
-	bullet.position = main_tank.position \
-					  + 1.1*facing*main_tank.get_collision_radius() \
+	bullet.position = tank.position \
+					  + 1.1*facing*tank.get_collision_radius() \
 					  + 1.1*facing*bullet.get_collision_radius()
 	add_child(bullet)
-	bullet.apply_central_impulse(facing * blowback_impulse_magnitude)
+	bullet.apply_central_impulse(facing * Bullet.blowback_impulse_magnitude)
 	bullet.start_timeout()
+
+
+func main_tank_shoot():
+	tank_shoot(main_tank.id)

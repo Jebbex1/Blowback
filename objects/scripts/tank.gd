@@ -1,6 +1,7 @@
-class_name Tank
 extends RigidBody2D
+class_name Tank
 
+static var blowback_impulse_magnitude := 1110
 static var tank_packed_scene = preload("res://objects/tank.tscn")
 enum colors {BLUE, CYAN, GREEN, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW, ADMIN}
 
