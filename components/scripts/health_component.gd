@@ -2,6 +2,9 @@ extends Node2D
 class_name HealthComponent
 
 @export var health = 100
+@export var physical_defence := 0
+
+enum DamageTypes {PHYSICAL}
 
 signal health_changed(amount: int)
 signal health_increased(amount: int)
@@ -30,17 +33,8 @@ func decrease_health(amount: int) -> void:
 		emit_signal("health_depleted")
 
 
-func _on_health_changed(amount: int) -> void:
-	pass # Replace with function body.
-
-
-func _on_health_decreased(amount: int) -> void:
-	pass # Replace with function body.
-
-
-func _on_health_depleted() -> void:
-	pass # Replace with function body.
-
-
-func _on_health_increased(amount: int) -> void:
-	pass # Replace with function body.
+func calculate_health_decrease(attack: Attack) -> int:
+	var total_health_decrease = 0
+	if attack.damage[DamageTypes.PHYSICAL] - physical_defence > 0:
+		total_health_decrease += attack.damage[DamageTypes.PHYSICAL] - physical_defence
+	return total_health_decrease

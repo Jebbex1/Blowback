@@ -7,15 +7,6 @@ var loaded_tanks: Dictionary[int, Tank] = {}
 func _ready() -> void:
 	add_tank(1, Vector2(0, -10), Tank.colors.ADMIN, true)
 	add_tank(2, Vector2(100, 100))
-	var t = Thread.new()
-	t.start(foo)
-
-func foo():
-	var tank = loaded_tanks[2]
-	while true:
-		await get_tree().create_timer(3).timeout 
-		tank.update_angle(deg_to_rad(randi() % 360))
-		tank_shoot(tank.id)
 
 
 func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: bool = false):
@@ -28,7 +19,7 @@ func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: boo
 		action_component.connect("tank_shot", main_tank_shoot)
 	loaded_tanks[id] = tank_set[0]
 	add_child(tank_set[0])
-
+	tank_set[0].connect("tank_health_depleted", kill_tank)
 
 func get_main_tank_angle() -> float:
 	return (get_global_mouse_position() - main_tank.position).normalized().angle()
@@ -50,6 +41,7 @@ func tank_shoot(id: int):
 	bullet.position = tank.position \
 					  + 1.1*facing*tank.get_collision_radius() \
 					  + 1.1*facing*bullet.get_collision_radius()
+	
 	add_child(bullet)
 	bullet.apply_central_impulse(facing * Bullet.blowback_impulse_magnitude)
 	bullet.start_timeout()
@@ -57,3 +49,8 @@ func tank_shoot(id: int):
 
 func main_tank_shoot():
 	tank_shoot(main_tank.id)
+
+
+func kill_tank(id: int):
+	print("Tank with id ", id, " has died.")
+	# add call to future remove_tank function here.

@@ -8,6 +8,8 @@ enum colors {BLUE, CYAN, GREEN, ORANGE, PINK, PURPLE, RED, WHITE, YELLOW, ADMIN}
 var angle: float
 var id: int
 
+signal tank_health_depleted(id: int)
+
 
 static func new_tank(tank_id: int, starting_position: Vector2, color: int = -1, is_main: bool = false) -> Array:
 	var tank = tank_packed_scene.instantiate()
@@ -23,6 +25,14 @@ static func new_tank(tank_id: int, starting_position: Vector2, color: int = -1, 
 		tank.add_child(action_component)
 		return [tank, action_component]
 	return [tank, null]
+
+
+func _ready() -> void:
+	$HealthComponent.connect("health_depleted", emit_died)
+
+
+func emit_died() -> void:
+	emit_signal("tank_health_depleted", id)
 
 
 func update_angle(new_angle: float) -> void:
