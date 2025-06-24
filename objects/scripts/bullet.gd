@@ -1,6 +1,7 @@
 extends RigidBody2D
 class_name Bullet
 
+static var blowback_impulse_magnitude := 700
 static var bullet_packed_scene = preload("res://objects/bullet.tscn")
 
 
@@ -22,5 +23,5 @@ func start_timeout() -> void:
 
 
 func _on_hitbox_body_collision(body: Node2D) -> void:
-	if body is Player or body is StaticBody2D:
+	if body is Tank or body is StaticBody2D:
 		queue_free()
