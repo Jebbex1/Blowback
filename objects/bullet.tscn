@@ -18,7 +18,6 @@ mass = 0.5
 gravity_scale = 0.0
 linear_damp = 0.2
 script = ExtResource("1_3ndsa")
-base_damage = 11
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_ucnj8")]
 collision_layer = 4

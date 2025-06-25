@@ -15,3 +15,4 @@ func _on_body_entered(body: Node2D) -> void:
 	var damage = bullet.get_damage()
 	var attack = Attack.new_attack(damage)
 	health_component_node.hurt(attack)
+	attack.queue_free()
