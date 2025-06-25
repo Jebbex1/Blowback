@@ -9,7 +9,7 @@ func _ready() -> void:
 	add_tank(2, Vector2(100, 100))
 
 
-func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: bool = false):
+func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: bool = false) -> void:
 	var tank_set = Tank.new_tank(id, starting_position, color, is_main)
 	if is_main:
 		assert(main_tank == null, "Added two main tanks to the same scene - how u do this?")
@@ -29,9 +29,9 @@ func main_tank_refresh_angle() -> void:
 	main_tank.update_angle(get_main_tank_angle())
 
 
-func tank_shoot(id: int):
+func tank_shoot(id: int) -> void:
 	if not loaded_tanks.has(id):
-		return false
+		return
 	
 	var tank = loaded_tanks[id]
 	var facing = Vector2.from_angle(tank.angle)
@@ -47,10 +47,10 @@ func tank_shoot(id: int):
 	bullet.start_timeout()
 
 
-func main_tank_shoot():
+func main_tank_shoot() -> void:
 	tank_shoot(main_tank.id)
 
 
-func kill_tank(id: int):
+func kill_tank(id: int) -> void:
 	print("Tank with id ", id, " has died.")
 	# add call to future remove_tank function here.

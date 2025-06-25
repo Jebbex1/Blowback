@@ -38,3 +38,9 @@ func calculate_health_decrease(attack: Attack) -> int:
 	if attack.damage[DamageTypes.PHYSICAL] - physical_defence > 0:
 		total_health_decrease += attack.damage[DamageTypes.PHYSICAL] - physical_defence
 	return total_health_decrease
+
+
+func hurt(attack: Attack) -> void:
+	var damage = calculate_health_decrease(attack)
+	if damage > 0:
+		decrease_health(damage)
