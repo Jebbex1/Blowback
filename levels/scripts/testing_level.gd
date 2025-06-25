@@ -5,7 +5,7 @@ var loaded_tanks: Dictionary[int, Tank] = {}
 
 
 func _ready() -> void:
-	add_tank(1, Vector2(0, -10), Tank.colors.ADMIN, true)
+	add_tank(1, Vector2(0, -10), TankSpriteComponent.sprite_colors.ADMIN, true)
 	add_tank(2, Vector2(100, 100))
 
 

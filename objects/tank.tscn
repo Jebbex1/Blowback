@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnuotv5pvyx71"]
+[gd_scene load_steps=7 format=3 uid="uid://cnuotv5pvyx71"]
 
 [ext_resource type="Script" uid="uid://dusqydrfdgsrv" path="res://objects/scripts/tank.gd" id="1_7fmwn"]
-[ext_resource type="Texture2D" uid="uid://6a6q4mvhsnqx" path="res://objects/assets/white_tank.png" id="2_p8sh2"]
 [ext_resource type="PackedScene" uid="uid://cuoyxwgvivd6u" path="res://components/hurtbox_component.tscn" id="3_wrn35"]
 [ext_resource type="PackedScene" uid="uid://cwb5fe1l3fdw1" path="res://components/health_component.tscn" id="4_pfcjb"]
-
-[sub_resource type="GDScript" id="GDScript_rkbax"]
-script/source = "extends Sprite2D
-"
+[ext_resource type="PackedScene" uid="uid://heoknkisx557" path="res://components/tank_sprite_component.tscn" id="5_p8sh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjkh3"]
 radius = 18.0
@@ -25,11 +21,6 @@ linear_damp = 10.0
 angular_damp_mode = 1
 script = ExtResource("1_7fmwn")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("2_p8sh2")
-script = SubResource("GDScript_rkbax")
-
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component_node") instance=ExtResource("3_wrn35")]
 collision_layer = 2
 collision_mask = 4
@@ -46,3 +37,5 @@ debug_color = Color(1, 0, 0, 0.392157)
 shape = SubResource("CircleShape2D_yw30f")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_pfcjb")]
+
+[node name="TankSpriteComponent" parent="." instance=ExtResource("5_p8sh2")]

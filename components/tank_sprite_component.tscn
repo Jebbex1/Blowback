@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://heoknkisx557"]
+
+[ext_resource type="Texture2D" uid="uid://bm8hm2bajsvsq" path="res://objects/assets/tank_spritesheet.png" id="1_yeb2e"]
+[ext_resource type="Script" uid="uid://dtx4ih6uv0xhb" path="res://components/scripts/tank_sprite_component.gd" id="2_bmccy"]
+
+[node name="TankSpriteComponent" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_yeb2e")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("2_bmccy")
