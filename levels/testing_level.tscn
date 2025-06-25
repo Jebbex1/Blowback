@@ -10,6 +10,7 @@ size = Vector2(56, 56)
 script = ExtResource("1_omjae")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ktfr2")
@@ -19,6 +20,7 @@ scale = Vector2(0.445313, 0.445313)
 texture = ExtResource("2_aklg6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(52.5, -52.5)

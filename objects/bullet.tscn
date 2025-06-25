@@ -12,6 +12,8 @@ radius = 4.0
 radius = 4.0
 
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
 mass = 0.5
 gravity_scale = 0.0
 linear_damp = 0.2
@@ -19,6 +21,8 @@ script = ExtResource("1_3ndsa")
 base_damage = 11
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_ucnj8")]
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_rsjgb")
