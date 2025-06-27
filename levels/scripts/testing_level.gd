@@ -21,6 +21,13 @@ func add_tank(id: int, starting_position: Vector2, color: int = -1, is_main: boo
 	add_child(tank_set[0])
 	tank_set[0].connect("tank_health_depleted", kill_tank)
 
+
+func remove_tank(id: int) -> void:
+	var tank = loaded_tanks[id]
+	remove_child(tank)
+	tank.queue_free()
+
+
 func get_main_tank_angle() -> float:
 	return (get_global_mouse_position() - main_tank.position).normalized().angle()
 
@@ -52,5 +59,4 @@ func main_tank_shoot() -> void:
 
 
 func kill_tank(id: int) -> void:
-	print("Tank with id ", id, " has died.")
-	# add call to future remove_tank function here.
+	remove_tank(id)
