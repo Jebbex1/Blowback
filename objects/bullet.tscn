@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://co17p28gv6xru" path="res://components/ttl_component.tscn" id="3_xbcx7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsjgb"]
-radius = 4.0
+radius = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6wip1"]
-radius = 4.0
+radius = 2.0
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
@@ -31,8 +31,8 @@ debug_color = Color(1, 0, 0, 0.419608)
 shape = SubResource("CircleShape2D_6wip1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.49012e-08, -1.49012e-08)
-scale = Vector2(0.78125, 0.78125)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.401489, 0.401489)
 texture = ExtResource("2_xbcx7")
 
 [node name="TTLComponent" parent="." instance=ExtResource("3_xbcx7")]

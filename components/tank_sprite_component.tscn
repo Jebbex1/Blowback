@@ -5,6 +5,7 @@
 
 [node name="TankSpriteComponent" type="Sprite2D"]
 z_index = 1
+scale = Vector2(0.445312, 0.445312)
 texture = ExtResource("1_yeb2e")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)

@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://heoknkisx557" path="res://components/tank_sprite_component.tscn" id="5_p8sh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjkh3"]
-radius = 18.0
+radius = 8.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
-radius = 18.0278
+radius = 8.5
 
 [node name="Tank" type="RigidBody2D"]
 collision_layer = 2

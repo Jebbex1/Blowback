@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name Tank
 
-static var blowback_impulse_magnitude := 1110
+static var blowback_impulse_magnitude := 700
 static var tank_packed_scene = preload("res://objects/tank.tscn")
 
 
