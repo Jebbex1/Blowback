@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw64jw8ic85ie"
-path="res://.godot/imported/taiga_bridge_vertical.png-3ba34f2ea39a0f61377e6b2d040d61ed.ctex"
+uid="uid://da86kuf6spd7b"
+path="res://.godot/imported/cave_bridge.png-2f9a4ec8cb34218ee4b1f244d535d199.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/spritesheets/structures/bridges/taiga_bridge_vertical.png"
-dest_files=["res://.godot/imported/taiga_bridge_vertical.png-3ba34f2ea39a0f61377e6b2d040d61ed.ctex"]
+source_file="res://maps/spritesheets/structures/bridges/cave_bridge.png"
+dest_files=["res://.godot/imported/cave_bridge.png-2f9a4ec8cb34218ee4b1f244d535d199.ctex"]
 
 [params]
 

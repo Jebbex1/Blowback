@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxotkl5mex8nk"
-path="res://.godot/imported/taiga_bridge_horizontal.png-904260e4748fbed65d71b3ff5f48f89b.ctex"
+uid="uid://6o3morl45ah"
+path="res://.godot/imported/swamp_bridge.png-4920aee295befa605458481611c044ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/spritesheets/structures/bridges/taiga_bridge_horizontal.png"
-dest_files=["res://.godot/imported/taiga_bridge_horizontal.png-904260e4748fbed65d71b3ff5f48f89b.ctex"]
+source_file="res://maps/spritesheets/structures/bridges/swamp_bridge.png"
+dest_files=["res://.godot/imported/swamp_bridge.png-4920aee295befa605458481611c044ba.ctex"]
 
 [params]
 

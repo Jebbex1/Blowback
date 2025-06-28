@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqouhfhii82b7"
-path="res://.godot/imported/cave_bridge_horizontal.png-c3673e928e943fe168fe6eb7a004af6a.ctex"
+uid="uid://dqvldy6ysgxfr"
+path="res://.godot/imported/desert_bridge.png-5cff258ffef397d57cad598a83d9aa85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/spritesheets/structures/bridges/cave_bridge_horizontal.png"
-dest_files=["res://.godot/imported/cave_bridge_horizontal.png-c3673e928e943fe168fe6eb7a004af6a.ctex"]
+source_file="res://maps/spritesheets/structures/bridges/desert_bridge.png"
+dest_files=["res://.godot/imported/desert_bridge.png-5cff258ffef397d57cad598a83d9aa85.ctex"]
 
 [params]
 
