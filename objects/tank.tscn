@@ -6,17 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://heoknkisx557" path="res://components/tank_sprite_component.tscn" id="5_p8sh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjkh3"]
-radius = 8.5
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
-radius = 8.5
+radius = 6.0
 
 [node name="Tank" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 7
 mass = 1.5
 gravity_scale = 0.0
-lock_rotation = true
 linear_damp = 10.0
 angular_damp_mode = 1
 script = ExtResource("1_7fmwn")
@@ -33,7 +32,7 @@ health_component_node = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_qjkh3")
 debug_color = Color(1, 0, 0, 0.392157)
 
-[node name="EnviromentCollisionShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yw30f")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_pfcjb")]

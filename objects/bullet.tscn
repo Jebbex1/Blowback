@@ -32,7 +32,7 @@ shape = SubResource("CircleShape2D_6wip1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, 0)
-scale = Vector2(0.401489, 0.401489)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xbcx7")
 
 [node name="TTLComponent" parent="." instance=ExtResource("3_xbcx7")]

@@ -13,4 +13,5 @@ tile_map_data = PackedByteArray("AAAmAA4AQgADAAcAAAAnAA4AQgADAAcAAAAmAA8AEwACAAI
 tile_set = ExtResource("1_p5fey")
 
 [node name="Misc" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAPABkAIQAIAAcAAAAPABoAIQAIAAgAAAAPABsAIQAIAAkAAAAQABkAIQAJAAcAAAAQABoAIQAJAAgAAAARABkAIQAKAAcAAAARABoAIQAKAAgAAAARABsAIQAKAAkAAAA=")
 tile_set = ExtResource("1_p5fey")

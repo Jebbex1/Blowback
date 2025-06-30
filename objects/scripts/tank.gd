@@ -27,6 +27,10 @@ static func new_tank(tank_id: int, starting_position: Vector2, color: int = -1, 
 	return [tank, null]
 
 
+func _process(_delta: float) -> void:
+	$TankSpriteComponent.rotation = angle - rotation
+
+
 func _ready() -> void:
 	$HealthComponent.connect("health_depleted", emit_died)
 
@@ -37,7 +41,6 @@ func emit_died() -> void:
 
 func update_angle(new_angle: float) -> void:
 	angle = new_angle
-	$TankSpriteComponent.rotation = angle
 
 
 func select_sprite_color(color: int) -> void:
@@ -45,4 +48,4 @@ func select_sprite_color(color: int) -> void:
 
 
 func get_collision_radius() -> float:
-	return $EnviromentCollisionShape.shape.radius
+	return $CollisionShape2D.shape.radius
