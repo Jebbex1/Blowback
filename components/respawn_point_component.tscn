@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4n20v1phn6v4"]
+
+[ext_resource type="Script" uid="uid://chykm8yqhp7i0" path="res://components/scripts/respawn_point_component.gd" id="1_cpdtr"]
+
+[node name="RespawnPointComponent" type="Marker2D"]
+script = ExtResource("1_cpdtr")
